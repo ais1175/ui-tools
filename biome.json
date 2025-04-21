@@ -1,0 +1,74 @@
+{
+	"formatter": {
+		"enabled": true,
+		"formatWithErrors": false,
+		"ignore": [],
+		"attributePosition": "auto",
+		"indentStyle": "tab",
+		"indentWidth": 2,
+		"lineWidth": 80,
+		"lineEnding": "lf"
+	},
+	"javascript": {
+		"formatter": {
+			"arrowParentheses": "always",
+			"bracketSameLine": false,
+			"bracketSpacing": true,
+			"jsxQuoteStyle": "double",
+			"quoteProperties": "asNeeded",
+			"semicolons": "always",
+			"trailingCommas": "all"
+		}
+	},
+	"json": {
+		"formatter": {
+			"trailingCommas": "none"
+		}
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"nursery": {
+				"useSortedClasses": {
+					"level": "warn",
+					"options": {
+						"functions": ["clsx", "cva", "tw", "cn"]
+					}
+				}
+			},
+			"complexity": {
+				"useLiteralKeys": "off",
+				"noBannedTypes": "off",
+				"noForEach": "off"
+			},
+			"correctness": {
+				"noUnusedVariables": "warn",
+				"useExhaustiveDependencies": "off",
+				"useJsxKeyInIterable": "off"
+			},
+			"style": {
+				"useBlockStatements": "off",
+				"useConsistentArrayType": {
+					"level": "error",
+					"options": {
+						"syntax": "shorthand"
+					}
+				}
+			},
+			"suspicious": {
+				"useAwait": "warn",
+				"noExplicitAny": "off",
+				"noArrayIndexKey": "off"
+			}
+		},
+		"include": [
+			"**/*.ts",
+			"**/*.tsx",
+			"**/*.js",
+			"**/*.jsx",
+			"**/*.mjs",
+			"**/*.cjs"
+		]
+	}
+}

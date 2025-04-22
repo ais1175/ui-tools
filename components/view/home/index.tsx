@@ -234,7 +234,7 @@ function HomeIndex() {
 						<span className="block">
 							Open Source <span className="font-bold "> UI-TOOLS </span>
 						</span>
-						<span className="block"> for Design Engineers.</span>
+						<span className="block"> for Designer/Developer.</span>
 					</h1>
 					<p className="relative z-[1] mx-auto text-center text-sm sm:w-[80%] sm:text-base lg:w-[38rem] 2xl:w-[42rem] 2xl:text-lg">
 						A creative toolbox featuring shadow, SVG, gradient, and background

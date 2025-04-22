@@ -54,14 +54,7 @@ function HomeIndex() {
         img: theme === "dark" ? images.meshGradient : images.whiteMeshGradient,
         path: "/mesh-gradient",
       },
-      {
-        id: 4,
-        title: "Background Snippets",
-        description:
-          "Create unique background snippets with customizable colors and patterns. Perfect for modern UI design.",
-        img: theme === "dark" ? images.bgSnippets : images.whiteBgSnippets,
-        path: "/background-snippets",
-      },
+  
     ]);
   }, [theme]);
 
@@ -252,7 +245,7 @@ function HomeIndex() {
           </div>
         </div>
 
-        <div className="relative z-20 mx-auto flex flex-wrap justify-center  max-w-screen-xl gap-2 p-4 pt-10 sm:gap-6 sm:p-6 sm:pt-16 md:pt-32">
+        <div className="relative z-20 mx-auto flex flex-wrap justify-center  max-w-screen-xl gap-2 p-4 pt-10 sm:gap-6 sm:p-6 sm:pt-16 md:pt-40">
           {uiTools.map((tool) => (
             <div
               key={tool.id}
@@ -263,7 +256,7 @@ function HomeIndex() {
                 }
               }}
               // w-[calc(33.333%-1rem)]
-              className="w-[calc(50%-1rem)] group relative cursor-pointer overflow-hidden rounded-2xl bg-neutral-100/10 p-2 text-primary shadow-[0px_1px_0px_0px_rgba(17,17,26,0.1)] backdrop-blur-lg transition sm:p-3 lg:border dark:inset-shadow-[0_1px_rgb(255_255_255/0.15)] dark:bg-neutral-950/50 dark:shadow-none"
+              className="w-[calc(33.333%-1rem)] group relative cursor-pointer overflow-hidden rounded-2xl bg-neutral-100/10 p-2 text-primary shadow-[0px_1px_0px_0px_rgba(17,17,26,0.1)] backdrop-blur-lg transition sm:p-3 dark:inset-shadow-[0_1px_rgb(255_255_255/0.15)] dark:bg-neutral-950/50 dark:shadow-none"
             >
               <Image
                 src={tool.img}
@@ -276,7 +269,7 @@ function HomeIndex() {
             </div>
           ))}
         </div>
-        <footer className="container relative z-10 mx-auto flex justify-center rounded-md p-2">
+        {/* <footer className="container relative z-10 mx-auto flex justify-center rounded-md p-2">
           <p className="text-balance text-center font-semibold text-sm text-white md:text-left lg:text-muted-foreground">
             Built by{" "}
             <a
@@ -298,7 +291,7 @@ function HomeIndex() {
             </a>
             .
           </p>
-        </footer>
+        </footer> */}
       </div>
     </>
   );

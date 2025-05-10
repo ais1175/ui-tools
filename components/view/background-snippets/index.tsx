@@ -225,7 +225,7 @@ export default function BackgroundPatternGenerator() {
 					Experiment with beautiful <br /> background Snippets.
 				</h1>
 
-				<div className="mx-auto flex w-fit items-center justify-center gap-2">
+				<div className="mx-auto flex w-fit items-center justify-center gap-2 font-semibold">
 					<div className="flex gap-2 rounded-md border bg-card-bg p-2 shadow-[0px_1px_0px_0px_rgba(17,17,26,0.1)] dark:inset-shadow-[0_1px_rgb(255_255_255/0.15)] dark:border-0">
 						Expand
 						<Switch

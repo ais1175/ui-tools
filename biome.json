@@ -62,9 +62,6 @@
 				"noArrayIndexKey": "off"
 			}
 		},
-		"include": [
-			"**/*.ts",
-			"**/*.tsx"
-		]
+		"include": ["**/*.ts", "**/*.tsx"]
 	}
 }

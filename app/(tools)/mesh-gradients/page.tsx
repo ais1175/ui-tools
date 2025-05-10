@@ -3,7 +3,7 @@ import { siteConfig } from "@/lib/utils";
 import type { Metadata } from "next";
 import React from "react";
 export const metadata: Metadata = {
-	title: "Mesh-Gradient",
+	title: "Mesh-Gradient Generator",
 	description:
 		"Create beautiful mesh gradients and fluid color transitions for your web designs. Perfect for modern UI and backgrounds.",
 	keywords: [

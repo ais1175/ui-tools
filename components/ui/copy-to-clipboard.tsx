@@ -2,20 +2,29 @@ import { cn } from "@/lib/utils";
 import { CheckCheck, Copy } from "lucide-react";
 import type React from "react";
 import { useState } from "react";
+import { toast } from "sonner";
 import { Button } from "./button";
 
 type CopyProps = {
+	children?: React.ReactNode;
 	text: string;
 	classname?: string;
 };
 
-const CopyToClipboard: React.FC<CopyProps> = ({ text, classname }) => {
+const CopyToClipboard: React.FC<CopyProps> = ({
+	children,
+	text,
+	classname,
+}) => {
 	const [copied, setCopied] = useState(false);
 
 	const copyToClipboard = () => {
 		navigator.clipboard.writeText(text);
 		setCopied(true);
 		setTimeout(() => setCopied(false), 2000);
+		toast.success("code copied", {
+			description: "The code has been copied to your clipboard",
+		});
 	};
 
 	return (
@@ -28,7 +37,7 @@ const CopyToClipboard: React.FC<CopyProps> = ({ text, classname }) => {
 				classname,
 			)}
 		>
-			{copied ? <CheckCheck /> : <Copy />}
+			{copied ? <CheckCheck /> : <Copy />} {children}
 		</Button>
 	);
 };

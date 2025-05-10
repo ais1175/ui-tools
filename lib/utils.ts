@@ -217,12 +217,15 @@ export const pointsToSvgPath = (
 
 export const siteConfig = {
 	name: "Tools",
+	openGraphName: "Tools For Developer/Designer",
 	url: "https://tools.ui-layouts.com",
 	ogImage: "https://tools.ui-layouts.com/og.jpg",
 	shadowOgImage: "https://tools.ui-layouts.com/shadows.jpg",
 	clipPathOgImage: "https://tools.ui-layouts.com/clippath.jpg",
 	gradientOgImage: "https://tools.ui-layouts.com/meshgradients.jpg",
 	bgSnippetsOgImage: "https://tools.ui-layouts.com/bgsnippets.jpg",
+	lineDrawOgImage: "https://tools.ui-layouts.com/svgpathanimation.jpg",
+	colorOgImage: "https://tools.ui-layouts.com/colors.jpg",
 	description:
 		"A creative toolbox featuring shadow, SVG Clip-Path, gradient, and background pattern generators, color. Open-source, fast, and made for builders.",
 	links: {

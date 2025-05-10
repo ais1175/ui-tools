@@ -1,5 +1,6 @@
 "use client";
 
+import CopyToClipboard from "@/components/ui/copy-to-clipboard";
 import { Switch } from "@/components/ui/switch";
 import { preBuiltShadows } from "@/config/shadow-data";
 import { cn } from "@/lib/utils";
@@ -26,7 +27,7 @@ export default function ShadowGallery({
 				<h1 className="text-center font-medium text-2xl sm:text-3xl md:text-5xl">
 					The Ultimate Shadow <br /> Generator for Developers.
 				</h1>
-				<div className="mx-auto flex w-fit items-center justify-center gap-2">
+				<div className="mx-auto flex w-fit items-center justify-center gap-2 font-semibold">
 					<div className="flex gap-2 rounded-md border bg-card-bg p-2 shadow-[0px_1px_0px_0px_rgba(17,17,26,0.1)] dark:inset-shadow-[0_1px_rgb(255_255_255/0.15)] dark:border-0">
 						Expand
 						<Switch
@@ -59,10 +60,14 @@ export default function ShadowGallery({
 						<motion.div
 							key={shadow.id}
 							className={cn(
-								"group relative cursor-pointer rounded-md p-2 lg:p-5 2xl:p-6",
+								"group group relative cursor-pointer rounded-md p-2 lg:p-5 2xl:p-6",
 							)}
 							onClick={() => applyPreset(shadow)}
 						>
+							<CopyToClipboard
+								classname="top-6 right-7 opacity-0 group-hover:opacity-100 transition-opacity"
+								text={shadow.tailwind}
+							/>
 							<div
 								className={cn(
 									"relative flex aspect-square w-full flex-col items-center justify-center rounded-lg text-center text-neutral-700 text-xs transition-transform group-hover:scale-105 dark:bg-neutral-950 dark:text-neutral-400",

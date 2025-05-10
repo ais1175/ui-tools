@@ -4,6 +4,7 @@ import type React from "react";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import CopyToClipboard from "@/components/ui/copy-to-clipboard";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Switch } from "@/components/ui/switch";
 import { Tabs, TabsContent, TabsList } from "@/components/ui/tabs";
@@ -24,10 +25,9 @@ import { ShapePreview } from "./shape-preview";
 
 // Sample images for preview
 const SAMPLE_IMAGES = [
-	"https://images.unsplash.com/photo-1739961097730-62a10f1e1e72?w=500&auto=format&fit=crop",
-	"https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=1200&auto=format&fit=crop",
-	"https://images.unsplash.com/photo-1726248985549-50f320ddf7f2?w=1200&auto=format&fit=crop",
-	"https://images.unsplash.com/photo-1552229611-e2e46b57c927?w=1200&auto=format&fit=crop",
+	"https://images.unsplash.com/photo-1635776062127-d379bfcba9f8?q=80&w=1932&auto=format&fit=crop",
+	"https://images.unsplash.com/photo-1624115773145-9b77fe912897?q=80&w=2070&auto=format&fit=crop",
+	"https://images.unsplash.com/photo-1600619030925-569b3b964418?q=80&w=2127&auto=format&fit=crop",
 ];
 
 export default function ClipPathGenerator() {
@@ -237,7 +237,7 @@ export default function ClipPathGenerator() {
 					SVG Clip-Paths for <br /> Developers & Designers
 				</h1>
 
-				<div className="mx-auto flex w-fit items-center justify-center gap-2">
+				<div className="mx-auto flex w-fit items-center justify-center gap-2 font-semibold">
 					<div className="flex gap-2 rounded-md border bg-card-bg p-2 shadow-[0px_1px_0px_0px_rgba(17,17,26,0.1)] dark:inset-shadow-[0_1px_rgb(255_255_255/0.15)] dark:border-0">
 						Expand
 						<Switch
@@ -271,7 +271,7 @@ export default function ClipPathGenerator() {
 					(shape) => (
 						<div
 							key={shape.id}
-							className="relative grid aspect-square w-full cursor-pointer place-items-center rounded-lg border p-3 lg:p-10 2xl:h-48 dark:border-neutral-950"
+							className="group relative grid aspect-square w-full cursor-pointer place-items-center rounded-lg border p-3 lg:p-10 2xl:h-48 dark:border-neutral-950"
 							onClick={() => setSelectedShapeId(shape.id)}
 							onKeyDown={(e) => {
 								if (e.key === "Enter" || e.key === " ") {

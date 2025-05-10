@@ -62,7 +62,17 @@ function ToolsHeader({ className }: { className?: string }) {
 
 					<div className="flex items-center gap-2">
 						{!isMobile && (
-							<nav className="inset-shadow-[0_2px_rgb(0_0_0/0.10)] flex h-11 items-center gap-1 rounded-xl bg-card-bg px-1 font-semibold text-sm dark:inset-shadow-[0_1px_rgb(255_255_255/0.15)] ">
+							<nav className="inset-shadow-[0_2px_rgb(0_0_0/0.10)] flex h-11 items-center gap-1 rounded-xl bg-card-bg px-1 font-semibold text-xs 2xl:text-base dark:inset-shadow-[0_1px_rgb(255_255_255/0.15)] ">
+								<Link
+									href="/svg-line-draw"
+									className={cn(
+										"inline-block rounded-lg p-2 px-3",
+										pathname === "/svg-line-draw" &&
+											"bg-primary text-primary-foreground",
+									)}
+								>
+									SVG Line Draw
+								</Link>
 								<Link
 									href="/shadows"
 									className={cn(
@@ -102,6 +112,16 @@ function ToolsHeader({ className }: { className?: string }) {
 									)}
 								>
 									Background Snippets
+								</Link>
+								<Link
+									href="/color-lab"
+									className={cn(
+										"inline-block rounded-lg p-2 px-3",
+										pathname === "/color-lab" &&
+											"bg-primary text-primary-foreground",
+									)}
+								>
+									Color Lab
 								</Link>
 							</nav>
 						)}

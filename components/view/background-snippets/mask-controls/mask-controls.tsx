@@ -58,7 +58,7 @@ export function MaskControls({
 			className={`relative mt-4 space-y-2 rounded-lg ${!useMask && "h-32 overflow-hidden"}`}
 		>
 			{!useMask && (
-				<div className="-bottom-5 absolute left-0 h-[6.5rem] w-full bg-linear-to-t/srgb from-background" />
+				<div className="-bottom-5 absolute left-0 h-[6.5rem] w-full bg-linear-to-t/srgb from-background dark:from-black" />
 			)}
 			<div className="mb-4 flex items-center justify-between">
 				<div className="flex items-center space-x-2">

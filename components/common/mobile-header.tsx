@@ -54,6 +54,16 @@ function MobileHeader({ classname }: { classname?: string }) {
 					<div className="grid gap-4 py-4">
 						<nav className="inset-shadow-[0_2px_rgb(0_0_0/0.10)] flex flex-col space-y-2 rounded-xl bg-card-bg p-4 font-semibold text-sm dark:inset-shadow-[0_1px_rgb(255_255_255/0.15)]">
 							<Link
+								href="/svg-line-draw"
+								className={cn(
+									"inline-block rounded-lg p-2 px-3",
+									pathname === "/svg-line-draw" &&
+										"bg-primary text-primary-foreground",
+								)}
+							>
+								SVG Line Draw
+							</Link>
+							<Link
 								href="/shadows"
 								className={cn(
 									"inline-block rounded-lg p-2 px-3",
@@ -92,6 +102,26 @@ function MobileHeader({ classname }: { classname?: string }) {
 								)}
 							>
 								Background Snippets
+							</Link>
+							<Link
+								href="/color-lab"
+								className={cn(
+									"inline-block rounded-lg p-2 px-3",
+									pathname === "/color-lab" &&
+										"bg-primary text-primary-foreground",
+								)}
+							>
+								Background Snippets
+							</Link>
+							<Link
+								href="/color-lab"
+								className={cn(
+									"inline-block rounded-lg p-2 px-3",
+									pathname === "/color-lab" &&
+										"bg-primary text-primary-foreground",
+								)}
+							>
+								Color Lab
 							</Link>
 						</nav>
 					</div>

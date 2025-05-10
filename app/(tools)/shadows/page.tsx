@@ -3,7 +3,7 @@ import { siteConfig } from "@/lib/utils";
 import type { Metadata } from "next";
 import React from "react";
 export const metadata: Metadata = {
-	title: "Shadows",
+	title: "Shadows Generator",
 	description:
 		"Generate beautiful CSS and Tailwind CSS v3/v4 box-shadows and text-shadows. Perfect for modern UI, glassmorphism, and soft design systems.",
 	keywords: [

@@ -35,7 +35,7 @@ export function HistoryFavorites({
 								<Tooltip>
 									<TooltipTrigger asChild>
 										{/* biome-ignore lint/a11y/useButtonType: <explanation> */}
-<button
+										<button
 											className="h-8 w-8 rounded-md border transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
 											style={{ backgroundColor: color }}
 											onClick={() => setHexValue(color)}
@@ -64,7 +64,7 @@ export function HistoryFavorites({
 									<Tooltip>
 										<TooltipTrigger asChild>
 											{/* biome-ignore lint/a11y/useButtonType: <explanation> */}
-<button
+											<button
 												className="h-8 w-8 rounded-md border transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
 												style={{ backgroundColor: color }}
 												onClick={() => setHexValue(color)}

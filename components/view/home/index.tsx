@@ -9,27 +9,37 @@ import GitHubButton from "@/components/ui/github-button";
 import { CustomSlider } from "@/components/ui/range-slider";
 import { useMediaQuery } from "@/components/ui/use-media-query";
 import { ShaderGradient, ShaderGradientCanvas } from "@shadergradient/react";
-import { ChevronsRight, MoveRight } from "lucide-react";
+import { ChevronsRight, Lightbulb, MoveRight } from "lucide-react";
 import { LayoutGroup, motion } from "motion/react";
 import { useTheme } from "next-themes";
 import Image, { type StaticImageData } from "next/image";
 import { useRouter } from "next/navigation";
+import SendIdea from "./send-idea";
 type UiTool = {
 	id: number;
 	title: string;
 	description: string;
 	img: StaticImageData;
 	path: string;
+	new?: boolean;
 };
 function HomeIndex() {
 	const isTab = useMediaQuery("(max-width:1024px)");
 
-	const _router = useRouter();
 	const { theme } = useTheme();
 	const [uiTools, setUiTools] = useState<UiTool[]>([]);
 
 	useEffect(() => {
 		setUiTools([
+			{
+				id: 1,
+				title: "SVG Line Draw",
+				description:
+					"SVG Line Draw is your creative playground for sketching hand-drawn lines, arrows, highlights, and animations. Perfect for annotations, web design, and interactive storytelling.",
+				img: theme === "dark" ? images.svgLineDraw : images.whiteSvgLineDraw,
+				path: "/svg-line-draw",
+				new: true,
+			},
 			{
 				id: 1,
 				title: "Shadow Generator",
@@ -61,6 +71,15 @@ function HomeIndex() {
 					"Create unique background snippets with customizable colors and patterns. Perfect for modern UI design.",
 				img: theme === "dark" ? images.bgSnippets : images.whiteBgSnippets,
 				path: "/background-snippets",
+			},
+			{
+				id: 1,
+				title: "Color Lab",
+				description:
+					"Color Lab is your ultimate color toolkit. Generate stunning palettes, convert between HEX, RGB, HSL, and explore StatsCN Theme Generator – perfect for designers and developers.",
+				img: theme === "dark" ? images.svgLineDraw : images.whiteSvgLineDraw,
+				path: "/color-lab",
+				new: true,
 			},
 		]);
 	}, [theme]);
@@ -228,7 +247,7 @@ function HomeIndex() {
 					)}
 
 					<span className="relative z-[1] mx-auto inline-block w-fit rounded-lg bg-white/5 p-1 px-2 text-xl backdrop-blur-lg">
-						Introducing 🔥
+						Introducing Tools🔥
 					</span>
 					<h1 className="relative z-[1] text-center font-semibold text-3xl sm:text-4xl sm:leading-[100%] md:text-5xl lg:text-5xl xl:text-5xl 2xl:text-5xl ">
 						<span className="block">
@@ -240,15 +259,16 @@ function HomeIndex() {
 						A creative toolbox featuring shadow, SVG, gradient, and background
 						pattern generators, color. Open-source, fast, and made for builders.
 					</p>
-					<div className="relative z-[2] flex items-center justify-center gap-2">
+					<div className="relative z-[2] flex flex-wrap items-center justify-center gap-2">
 						<GitHubButton />
 						<a
-							href="/shadows"
+							href="/svg-line-draw"
 							className="flex h-11 items-center gap-1 rounded-full bg-background px-3 font-semibold text-foreground"
 						>
 							Get Started
 							<ChevronsRight />
 						</a>
+						<SendIdea />
 					</div>
 				</div>
 
@@ -258,10 +278,14 @@ function HomeIndex() {
 							key={tool.id}
 							href={tool.path}
 							target="_blank"
-							// w-[calc(33.333%-1rem)]
-							className="group relative w-[calc(50%-1rem)] cursor-pointer overflow-hidden rounded-2xl bg-neutral-100/10 p-2 text-primary shadow-[0px_1px_0px_0px_rgba(17,17,26,0.1)] backdrop-blur-lg transition sm:p-3 dark:inset-shadow-[0_1px_rgb(255_255_255/0.15)] dark:bg-neutral-950/50 dark:shadow-none"
+							className="group relative w-[calc(50%-1rem)] cursor-pointer overflow-hidden rounded-2xl bg-neutral-100/10 p-2 text-primary shadow-[0px_1px_0px_0px_rgba(17,17,26,0.1)] backdrop-blur-lg transition sm:w-[calc(30%-1rem)] sm:p-3 dark:inset-shadow-[0_1px_rgb(255_255_255/0.15)] dark:bg-neutral-950/50 dark:shadow-none"
 							rel="noreferrer"
 						>
+							{tool?.new && (
+								<span className="absolute top-2 right-2 z-10 rounded-full bg-blue-500 px-3 py-0.5 text-white text-xs">
+									New
+								</span>
+							)}
 							<Image
 								src={tool.img}
 								alt={tool.title}

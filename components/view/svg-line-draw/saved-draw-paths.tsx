@@ -155,8 +155,8 @@ export function SavedPathsTab({
 								onKeyDown={(e) => {
 									if (e.key === "Enter") {
 										onSelectPath(savedPath.path, savedPath.viewBox);
-									setActivePresets(savedPath.id);
-									setExampleViewBox(savedPath.viewBox);
+										setActivePresets(savedPath.id);
+										setExampleViewBox(savedPath.viewBox);
 									}
 								}}
 							>

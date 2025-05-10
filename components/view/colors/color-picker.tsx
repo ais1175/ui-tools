@@ -105,11 +105,12 @@ export function ColorPicker({
 						onInteractOutside={() => setOpen(false)}
 					>
 						<div className="space-y-3">
-							<div onClick={(e) => e.stopPropagation()}
+							<div
+								onClick={(e) => e.stopPropagation()}
 								onKeyDown={(e) => e.stopPropagation()}
 								onKeyPress={(e) => e.stopPropagation()}
 								onKeyUp={(e) => e.stopPropagation()}
-								>
+							>
 								<HexColorPicker color={color} onChange={handleColorChange} />
 							</div>
 

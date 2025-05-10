@@ -176,7 +176,7 @@ export function DrawingCanvas({
 				ctx.arc(
 					point.x,
 					point.y,
-					(isSelected || isHovered ? 8 : 7 ) / scale, // Adjust size for zoom
+					(isSelected || isHovered ? 8 : 7) / scale, // Adjust size for zoom
 					0,
 					Math.PI * 2,
 				);

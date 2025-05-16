@@ -58,7 +58,7 @@ function SendIdea() {
 					<DialogHeader>
 						<DialogTitle className="font-semibold">Share your idea</DialogTitle>
 						<DialogDescription>
-            Let's make something great with your ideas💡
+							Let's make something great with your ideas💡
 						</DialogDescription>
 					</DialogHeader>
 					<form

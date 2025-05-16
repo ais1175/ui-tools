@@ -128,7 +128,7 @@ export default function RootLayout({
 			<body suppressHydrationWarning className={`${poppins.className}`}>
 				<NuqsAdapter>
 					<ThemeProvider attribute="class">
-						<TooltipProvider>
+						<TooltipProvider delayDuration={0}>
 							<Toaster position="bottom-right" richColors />
 							{children}
 						</TooltipProvider>

@@ -2,11 +2,12 @@ import ClipPathGenerator from "@/components/view/clip-path";
 import ColorConverter from "@/components/view/colors";
 import { siteConfig } from "@/lib/utils";
 import type { Metadata } from "next";
-import React from "react";
+import React, { Suspense } from "react";
 export const metadata: Metadata = {
-	title: "Color Lab – Play, Pick, Convert & Generate Beautiful Color Palettes",
+	title:
+		"Color Lab – Generate Color Palettes, Convert Codes & Build Shadcn Themes",
 	description:
-		"Color Lab is your ultimate color toolkit. Generate stunning palettes, convert between HEX, RGB, HSL, and explore StatsCN Theme Generator – perfect for designers and developers.",
+		"Color Lab is your all-in-one color and UI toolkit. Create stunning palettes, convert between HEX, RGB, HSL, and design custom themes with the built-in Shadcn UI Theme Generator – ideal for designers and frontend developers.",
 	keywords: [
 		"Color palette generator",
 		"Color converter HEX to RGB",
@@ -28,6 +29,18 @@ export const metadata: Metadata = {
 		"Free design tools",
 		"Color labs online",
 		"Ultimate color toolkit",
+		// Added for shadcn
+		"Shadcn theme generator",
+		"Shadcn color generator",
+		"Shadcn UI toolkit",
+		"Generate shadcn themes",
+		"Shadcn color system",
+		"Shadcn palette creator",
+		"Custom shadcn components",
+		"Shadcn theme customization",
+		"UI theming with shadcn",
+		"Shadcn design system tools",
+		"Tailwind + shadcn generator",
 	],
 	openGraph: {
 		type: "website",
@@ -55,11 +68,27 @@ export const metadata: Metadata = {
 		creator: "@naymur_dev",
 	},
 };
-
+const PageLoading = () => {
+	return (
+		<>
+			<div className="mx-auto h-28 w-[50%] animate-pulse rounded-lg border bg-card-bg" />
+			<div className="mx-auto grid w-[70%] grid-cols-3 gap-5 pt-10 md:grid-cols-6">
+				{Array.from({ length: 18 }).map((_, index) => (
+					<div
+						key={index}
+						className="h-36 w-full animate-pulse rounded-lg border bg-card-bg"
+					/>
+				))}
+			</div>
+		</>
+	);
+};
 function page() {
 	return (
 		<>
-			<ColorConverter />
+			<Suspense fallback={<PageLoading />}>
+				<ColorConverter />
+			</Suspense>
 		</>
 	);
 }

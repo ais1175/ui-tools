@@ -84,7 +84,14 @@ export function generateThemeCSSv4(
 	lightTheme: Record<string, string>,
 	darkTheme: Record<string, string>,
 ) {
-	return `:root {
+	return `
+// global.css
+
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
 ${formatThemeForCSS(lightTheme)}
 }
 

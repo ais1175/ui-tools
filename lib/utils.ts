@@ -225,7 +225,7 @@ export const siteConfig = {
 	gradientOgImage: "https://tools.ui-layouts.com/meshgradients.jpg",
 	bgSnippetsOgImage: "https://tools.ui-layouts.com/bgsnippets.jpg",
 	lineDrawOgImage: "https://tools.ui-layouts.com/svgpathanimation.jpg",
-	colorOgImage: "https://tools.ui-layouts.com/colors.jpg",
+	colorOgImage: "https://tools.ui-layouts.com/color-lab-og.jpg",
 	description:
 		"A creative toolbox featuring shadow, SVG Clip-Path, gradient, and background pattern generators, color. Open-source, fast, and made for builders.",
 	links: {

@@ -11,6 +11,7 @@ import {
 	PopoverTrigger,
 } from "@/components/ui/popover";
 import { EyeIcon as EyeDropperIcon } from "lucide-react";
+import { useQueryState } from "nuqs";
 import { useCallback, useEffect, useState } from "react";
 import { HexColorPicker } from "react-colorful";
 
@@ -19,6 +20,8 @@ interface ColorPickerProps {
 	value: string;
 	onChange: (value: string) => void;
 	label?: string;
+	id: string; // Unique identifier for this color picker
+	className?: string;
 }
 
 export function ColorPicker({
@@ -26,10 +29,17 @@ export function ColorPicker({
 	value,
 	onChange,
 	label,
+	id,
+	className,
 }: ColorPickerProps) {
 	const [color, setColor] = useState(value);
 	const [eyeDropperSupported, setEyeDropperSupported] = useState(false);
-	const [open, setOpen] = useState(false);
+
+	// Use URL query parameter to track active popover
+	const [activePopup, setActivePopup] = useQueryState("activepopup");
+
+	// Determine if this popover should be open
+	const isOpen = activePopup === id;
 
 	// Check if EyeDropper API is supported
 	useEffect(() => {
@@ -49,6 +59,7 @@ export function ColorPicker({
 			if (newColor !== color) {
 				setColor(newColor);
 				onChange(newColor);
+				// Keep the popover open by not changing activePopup
 			}
 		},
 		[color, onChange],
@@ -77,8 +88,22 @@ export function ColorPicker({
 			const result = await eyeDropper.open();
 			setColor(result.sRGBHex);
 			onChange(result.sRGBHex);
+			// Keep the popover open
 		} catch (e) {
 			console.error("Error using eyedropper:", e);
+		}
+	};
+
+	// Handle popover state changes
+	const handleOpenChange = (newOpen: boolean) => {
+		if (newOpen) {
+			// Set this popover as active
+			setActivePopup(id);
+		} else {
+			// Only clear if this popover is the active one
+			if (activePopup === id) {
+				setActivePopup(null);
+			}
 		}
 	};
 
@@ -86,11 +111,12 @@ export function ColorPicker({
 		<div className="space-y-1.5">
 			{label && <Label className="text-xs">{label}</Label>}
 			<div className="flex gap-2">
-				<Popover open={open} onOpenChange={setOpen}>
+				<Popover open={isOpen} onOpenChange={handleOpenChange}>
 					<PopoverTrigger asChild>
 						<Button
 							variant="outline"
-							className="flex h-9 w-full items-center justify-between border p-0"
+							className={`flex h-9 w-full items-center justify-between border p-0 ${className}`}
+							onClick={() => handleOpenChange(!isOpen)} // Toggle on click
 						>
 							<div
 								className="aspect-square h-full rounded-l-sm border-r"
@@ -100,18 +126,21 @@ export function ColorPicker({
 						</Button>
 					</PopoverTrigger>
 					<PopoverContent
-						className="w-auto p-3"
+						className="w-80 p-3"
 						align="start"
-						onInteractOutside={() => setOpen(false)}
+						onClick={(e) => e.stopPropagation()}
 					>
 						<div className="space-y-3">
 							<div
 								onClick={(e) => e.stopPropagation()}
+								onMouseDown={(e) => e.stopPropagation()}
 								onKeyDown={(e) => e.stopPropagation()}
-								onKeyPress={(e) => e.stopPropagation()}
-								onKeyUp={(e) => e.stopPropagation()}
 							>
-								<HexColorPicker color={color} onChange={handleColorChange} />
+								<HexColorPicker
+									className="!w-full"
+									color={color}
+									onChange={handleColorChange}
+								/>
 							</div>
 
 							<div className="flex gap-2">

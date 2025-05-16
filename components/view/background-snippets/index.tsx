@@ -275,7 +275,7 @@ export default function BackgroundPatternGenerator() {
 				</p>
 			)}
 			<div
-				className=" mx-auto gap-4 px-3 lg:container lg:grid lg:grid-cols-12 lg:px-0 xl:grid-cols-4"
+				className=" mx-auto gap-4 px-3 pb-8 lg:container lg:grid lg:grid-cols-12 lg:px-0 xl:grid-cols-4"
 				id="editor"
 			>
 				{!isMobile && (
